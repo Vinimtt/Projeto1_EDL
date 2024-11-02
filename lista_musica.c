@@ -181,17 +181,25 @@ int main() {
 
         switch (opcao) {
         case 1:
-            do{
+            do {
                 printf("Informe o titulo da musica: \n");
                 fgets(titulo, TAM, stdin);
                 titulo[strlen(titulo) - 1] = '\0';
-            }while(!validar_texto(titulo));
 
-            do{
+                if (!validar_texto(titulo)) {
+                    printf("Titulo invalido! Tente novamente.\n");
+                }
+            } while (!validar_texto(titulo));
+
+            do {
                 printf("Informe o artista: \n");
-                fgets(titulo, TAM, stdin);
-                artista[strlen(artista) - 1] = '\0';
-            }while(!validar_texto(artista));
+                fgets(artista, TAM, stdin);
+                artista[strlen(artista) - 1] = '\0'; 
+
+                if (!validar_texto(artista)) {
+                    printf("Artista invalido! Tente novamente.\n");
+                }
+            } while (!validar_texto(artista));
 
             printf("Informe a duracao da musica: \n");
             scanf("%f", &duracao);
